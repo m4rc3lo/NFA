@@ -4,6 +4,9 @@
 //#define states
 #include <string>
 #include <vector>
+#include <fstream>
+
+#include "Transitions.hpp"
 
 class LoadNFA
 {
@@ -13,7 +16,24 @@ public:
   LoadNFA(char* path);
   ~LoadNFA();
 
+  void print();
+
 private:
+
+  void load();
+  void split();
+
+  void states_alphabet();
+  void production();
+  void initial_acceppt();
+  void string();
+
+  int index;
+
+
+  std::ifstream stream_file;
+
+  std::vector<std::string> loads;
 
   std::vector<std::string> states;
   std::vector<std::string> alphabet;
